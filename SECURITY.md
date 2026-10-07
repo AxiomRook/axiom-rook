@@ -8,8 +8,14 @@ Vault files must have absolute paths outside the repository. Saving uses exclusi
 
 The external-context filter rejects private or unapproved records. Public approval is a deliberate disclosure decision; review the text itself, not just the label. Do not derive or store sensitive characteristics of Reddit users, match Reddit identities to off-platform identities, or train models on Reddit data.
 
-Reddit content is untrusted input. A future model must receive it as quoted discussion data, with no tools that can access secrets, private files or settings. Never let a comment change context approvals, permissions, allowlists or publishing decisions. This starter has no model/tool execution path.
+Reddit content is untrusted input. A future model must receive it as quoted discussion data, with no tools that can access secrets, private files or settings. Never let a comment change context approvals, permissions, allowlists or publishing decisions. The SIWC model path accepts only a fixed manually initiated synthetic test and explicitly approved operator context; it has no tools and is not connected to Reddit input.
 
 The public-file checker uses an explicit file allowlist and common token/email patterns. It is an additional guard, not a guarantee of anonymization or secret detection. Review every changed file before publication. `.gitignore` cannot remove data that was already committed. If a credential is exposed, revoke it first, then remove it from history using a separately reviewed process.
+
+SIWC credentials and account mappings must remain in protected local user storage outside the Git checkout. Never run real sign-in in a managed cloud workspace. Unix directories use mode 0700 and credential files 0600; writes are atomic and symlink credential files are rejected. On Windows, use the local profile directory with user-controlled OS permissions; chmod alone is not an ACL guarantee. The integration has not been tested on Windows or with a real account.
+
+Only the OpenAI authorization, token/discovery/JWKS and discovered same-origin revocation endpoints handle OAuth data. The browser callback binds only to 127.0.0.1 and displays no code or tokens. OpenAI requests disable redirects. ID-token verification uses the locked jose library. Account hints are omitted from authorization URLs so no retained ID token is logged or placed in a URL.
+
+SIWC never uses an OpenAI API key or silently changes billing. Token refresh happens only within explicit CLI actions, is serialized across local processes, and rotates the stored set together. Sign-out clears local tokens while retaining the account/client mapping and host identity; unconfirmed remote revocation is reported. No other user's activity may directly trigger the connected user's plan use.
 
 Production prerequisites include Reddit approval and app labeling, OAuth setup, approved model data handling, explicit community scope, persistent rate/deduplication controls, current deletion/block checks before every reply, bounded data retention, audit records without raw private text, and an operator kill switch. Posting remains unimplemented until these are resolved.

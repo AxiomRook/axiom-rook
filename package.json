@@ -13,5 +13,8 @@
     "test": "node --test",
     "check:public": "node scripts/check-public.js",
     "check": "npm run test && npm run check:public"
+  },
+  "dependencies": {
+    "jose": "6.2.12"
   }
 }

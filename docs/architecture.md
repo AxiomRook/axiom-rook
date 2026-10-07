@@ -17,9 +17,17 @@ Every record contains `id`, `layer`, `text`, `visibility`, `approvedForExternalU
 
 The offline CLI passes a synthetic comment and a fixed sample response into the draft workflow. The workflow creates a disclosed draft, holds it in memory and permits review of the exact body hash. Publishing always throws an error. Review cannot silently authorize publication.
 
-The separate OAuth adapter permits bounded public reads only after the operator has recorded actual Reddit approval, supplied a token and allowlisted a community. It uses a fixed HTTPS host, no redirects, a timeout, a six-requests-per-minute ceiling, quota-header cooldown and no automatic retry. Mock tests verify these gates. No credentials or real responses have been used.
+The separate OAuth adapter permits bounded public reads only after the operator has recorded actual Reddit approval, supplied a token and allowlisted a community. It uses a fixed HTTPS host, no redirects, a timeout, a six-requests-per-minute ceiling, quota-header cooldown and no automatic retry. Mock tests verify these gates. No Reddit credentials or real Reddit responses have been used.
 
 The encrypted vault is an independent storage component. It persists context records outside the repository but is not automatically loaded by the demo or sent to a model. A new vault filename is needed per save. No backups or synchronization are silently enabled.
+
+## Manual ChatGPT model access
+
+The SIWC adapter is independent of the Reddit reader and draft workflow. The CLI opens a local OAuth callback, verifies OpenAI identity and stores registrations/tokens outside the checkout. It discovers the connected account's models, accepts an explicit model selection and runs a fixed synthetic connection test through Responses. There is no route from Reddit comments, webhooks or timers to this adapter.
+
+An explicit `chatgpt-test --context-vault` invocation can load the existing external encrypted vault. Every record passes `buildExternalContext` before request construction; private records remain excluded even when marked approved. The four layers are unchanged. Accepted continuity/history records are included directly in the request's `input` array. SIWC grants no ChatGPT chat-history or personalization access. No real continuity seed has been installed or evaluated.
+
+OAuth state is protected in a separate local store. It does not share files, keys or permissions with the context vault. Session locks serialize token refresh and account changes. Successful inference requires `response.completed`; incomplete or disconnected streams are not accepted or retried automatically.
 
 ## Before production
 

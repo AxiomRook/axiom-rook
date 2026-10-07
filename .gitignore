@@ -17,6 +17,15 @@ backups/
 *.pfx
 credentials*.json
 secrets*.json
+chatgpt-auth*.json
+oauth*.json
+tokens*.json
+registrations*.json
+host-id*.json
+.session.lock/
+.axiom-rook/
+*.credential
+*.credentials
 
 # Dependencies and generated output
 node_modules/
