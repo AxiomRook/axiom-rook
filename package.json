@@ -1,6 +1,9 @@
 {
   "name": "axiom-rook",
   "version": "0.1.0",
+  "version": "0.1.0",
+"license": "MIT",
+"private": true,
   "private": true,
   "description": "Approval-gated Reddit discussion agent starter",
   "type": "module",
