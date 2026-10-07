@@ -60,4 +60,4 @@ An independent account-based workflow is the reason for requesting review outsid
 - [Developer Platform and Data API access](https://support.reddithelp.com/hc/en-us/articles/14945211791892-Developer-Platform-Accessing-Reddit-Data)
 - [Devvit HTTP Fetch Policy](https://developers.reddit.com/docs/capabilities/server/http-fetch-policy)
 
-This public source is available for review. No open-source license has been selected; public visibility alone does not grant a license.
+This project is open source and licensed under the MIT License. See [LICENSE](LICENSE).
