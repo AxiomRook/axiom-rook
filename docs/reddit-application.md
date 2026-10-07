@@ -1,6 +1,6 @@
 # Reddit Data API application draft
 
-Prepared 2026-10-07 from the operator's existing Data Access Request form. **Not submitted.** The repository exists but starter source upload was blocked; remote currently contains only the initial README. Complete and verify source publication before using the descriptions below in a submission. This is a source-grounded draft, not an approval statement. Do not claim live integration or guaranteed Devvit incompatibility.
+Prepared 2026-10-07 from the operator's existing Data Access Request form. **Not submitted.** The public starter source is published at `AxiomRook/axiom-rook`, including the CI workflow. Review the GitHub Actions result for the exact commit before using this source in a submission. This is a source-grounded draft, not an approval statement. Do not claim live integration or guaranteed Devvit incompatibility.
 
 ## Form fields
 
