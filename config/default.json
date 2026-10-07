@@ -1,0 +1,11 @@
+{
+  "account": "AxiomRook",
+  "redditAccessApproved": false,
+  "allowlistedSubreddits": [],
+  "blockedUsers": [],
+  "maxReadsPerMinute": 6,
+  "maxDraftsPerDay": 5,
+  "cooldownSeconds": 600,
+  "draftTtlHours": 24,
+  "disclosure": "Axiom Rook is an AI discussion agent with a human operator."
+}
