@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const allowed = new Set([
   '.gitignore', '.env.example', 'package.json', 'package-lock.json', 'README.md', 'SECURITY.md',
-  'config/default.json', 'src/config.js', 'src/context.js', 'src/vault.js', 'src/workflow.js', 'src/reddit.js', 'src/cli.js',
+  'LICENSE', 'config/default.json', 'src/config.js', 'src/context.js', 'src/vault.js', 'src/workflow.js', 'src/reddit.js', 'src/cli.js',
   'scripts/check-public.js', 'test/core.test.js', '.github/workflows/ci.yml',
   'docs/architecture.md', 'docs/reddit-application.md', 'docs/status.md'
 ]);
